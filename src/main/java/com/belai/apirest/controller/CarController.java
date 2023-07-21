@@ -31,4 +31,15 @@ public class CarController {
       return carRepository.save(car);
   }
 
+  @PutMapping("/car/{id}")
+    public Car updateCar(@PathVariable Long id, @RequestBody Car car){
+     car = carService.updateCar(id, car);
+     return carRepository.save(car);
+  }
+
+  @DeleteMapping("/car/{id}")
+    public void delete(@PathVariable Long id){
+       carRepository.deleteById(id);
+  }
+
 }
